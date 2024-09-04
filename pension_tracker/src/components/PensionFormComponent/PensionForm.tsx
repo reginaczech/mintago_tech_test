@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import Input from "../InputComponent/Input";
+import Text from "../TextComponent/Text";
 
-const Input = () => {
+const PensionForm = () => {
   return (
-    <div>Input</div>
-  )
-}
+    <>
+      <Text />
+      <Input />
+    </>
+  );
+};
 
-export default Input
+export default PensionForm;
