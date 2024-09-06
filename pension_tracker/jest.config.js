@@ -6,4 +6,5 @@ export default {
   },
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
   moduleFileExtensions: ["ts", "tsx", "js", "jsx"],
+  verbose: true,
 };
