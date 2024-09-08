@@ -1,22 +1,53 @@
-import { useState } from "react";
-import { PensionFormState } from "./PensionForm.types";
+import { useEffect, useState } from "react";
+import { PensionFormProps, PensionFormState } from "./PensionForm.types";
 import Input from "../InputComponent/Input";
+import {
+  desiredPensionCalc,
+  projectedPensionCalc,
+} from "../../utils/pensionCalcFn";
 
-const PensionForm = () => {
+const PensionForm = ({
+  setProjectedPension,
+  setDesiredPension,
+}: PensionFormProps) => {
   const [formData, setFormData] = useState<PensionFormState>({
-    age: 0,
     retireIncome: 0,
-    employerContribute: 0,
-    personalContribute: 0,
+    employerContribution: 0,
+    personalContribution: 0,
+    retireAge: 0,
   });
+
+  useEffect(() => {
+    if (
+      retireIncome > 0 &&
+      employerContribution > 0 &&
+      personalContribution > 0 &&
+      retireAge > 0
+    ) {
+      setProjectedPension(
+        projectedPensionCalc(
+          employerContribution,
+          personalContribution,
+          retireAge
+        )
+      );
+      setDesiredPension(desiredPensionCalc(retireIncome, retireAge));
+    }
+  }, [formData, setProjectedPension, setDesiredPension]);
 
   const handleFormChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+    const numValue = parseFloat(value) || 0;
+
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: numValue }));
   };
 
-  const { age, retireIncome, employerContribute, personalContribute } =
-    formData;
+  const {
+    retireIncome,
+    employerContribution,
+    personalContribution,
+    retireAge,
+  } = formData;
 
   return (
     <>
@@ -27,21 +58,21 @@ const PensionForm = () => {
         handleChange={handleFormChange}
       />
       <Input
-        name="personalContribute"
+        name="personalContribution"
         label="Personal Monthly Contributions"
-        value={personalContribute}
+        value={personalContribution}
         handleChange={handleFormChange}
       />
       <Input
-        name="employerContribute"
+        name="employerContribution"
         label="Employer Monthly Contributions"
-        value={employerContribute}
+        value={employerContribution}
         handleChange={handleFormChange}
       />
       <Input
-        name="age"
+        name="retireAge"
         label="Retirement Age"
-        value={age}
+        value={retireAge}
         handleChange={handleFormChange}
       />
     </>

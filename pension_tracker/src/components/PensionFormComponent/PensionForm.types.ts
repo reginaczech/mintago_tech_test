@@ -1,8 +1,13 @@
 interface PensionFormState {
   retireIncome: number;
-  employerContribute: number;
-  personalContribute: number;
-  age: number;
+  employerContribution: number;
+  personalContribution: number;
+  retireAge: number;
 }
 
-export type { PensionFormState };
+interface PensionFormProps {
+  setProjectedPension: React.Dispatch<React.SetStateAction<number | undefined>>;
+  setDesiredPension: React.Dispatch<React.SetStateAction<number | undefined>>;
+}
+
+export type { PensionFormProps, PensionFormState };
