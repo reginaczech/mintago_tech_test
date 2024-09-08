@@ -1,12 +1,18 @@
-import React from "react";
-import Input from "../../components/InputComponent/Input";
-import Text from "../../components/TextComponent/Text";
+import { useState } from "react";
+import PensionForm from "../../components/PensionFormComponent/PensionForm";
 
 const Dashboard = () => {
+  const [projectedPension, setProjectedPension] = useState<number>();
+  const [desiredPension, setDesiredPension] = useState<number>();
+
   return (
     <>
-      <Text />
-      <Input />
+      <PensionForm
+        setProjectedPension={setProjectedPension}
+        setDesiredPension={setDesiredPension}
+      />
+      <p>Projected Pension: {projectedPension}</p>
+      <p>Desired Pension: {desiredPension}</p>
     </>
   );
 };
