@@ -1,8 +1,8 @@
 interface PensionFormState {
-  retireIncome: number;
-  employerContribution: number;
-  personalContribution: number;
-  retireAge: number;
+  retireIncome: string;
+  employerContribution: string;
+  personalContribution: string;
+  retireAge: string;
 }
 
 interface PensionFormProps {

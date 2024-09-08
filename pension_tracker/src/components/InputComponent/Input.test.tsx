@@ -7,13 +7,14 @@ describe("Modular Input Component", () => {
   const props = {
     name: "test",
     label: "TestLabel",
-    value: "",
+    value: 0,
+    type: "number" as const,
     handleChange: mockHandleChange,
   };
 
   it("should render an input element", () => {
     render(<Input {...props} />);
-    expect(screen.getByRole("textbox")).toBeInTheDocument();
+    expect(screen.getByRole("spinbutton")).toBeInTheDocument();
   });
 
   it("should render a label", () => {
@@ -23,8 +24,8 @@ describe("Modular Input Component", () => {
 
   it("should update on change", () => {
     render(<Input {...props} />);
-    const inputEl = screen.getByRole("textbox") as HTMLInputElement;
-    fireEvent.change(inputEl, { target: { value: "new value" } });
+    const inputEl = screen.getByRole("spinbutton") as HTMLInputElement;
+    fireEvent.change(inputEl, { target: { value: 1 } });
 
     expect(mockHandleChange).toHaveBeenCalled();
     //TODO: test if value is updating correctly?

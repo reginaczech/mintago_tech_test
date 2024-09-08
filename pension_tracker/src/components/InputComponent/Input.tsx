@@ -2,7 +2,7 @@
 
 import { InputProps } from "./Input.types";
 
-const Input = ({ name, label, value, handleChange }: InputProps) => {
+const Input = ({ name, label, type, value, handleChange, min, max }: InputProps) => {
   return (
     <>
       <div className="flex flex-col">
@@ -16,10 +16,12 @@ const Input = ({ name, label, value, handleChange }: InputProps) => {
           <input
             className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             id={name}
-            type="text"
+            type={type}
             name={name}
             value={value}
             onChange={handleChange}
+            min={min}
+            max={max}
           />
         </div>
       </div>
