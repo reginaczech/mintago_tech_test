@@ -1,7 +1,12 @@
-import { PensionData } from "../../types/PensionData.types";
+import { PensionData, TotalsData } from "../../types/index.types";
 
 interface ChartProps {
-  data: PensionData[];
+  chartTitle: string;
+  data: (PensionData | TotalsData)[];
+  xAxisKey: string;
+  yAxisKey: string;
+  secondaryKey?: string;
+  chartType: "timeSeries" | "comparison";
 }
 
 export type { ChartProps };

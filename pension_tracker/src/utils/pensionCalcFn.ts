@@ -1,7 +1,6 @@
 //Assumptions: Starting Age 25; Dying Age 81
 
-import { PensionData } from "../types/PensionData.types";
-
+import { PensionData } from "../types/index.types";
 
 const projectedPensionCalc = (
   employerContribution: number, //TODO: change to partial PensionFormState Type?

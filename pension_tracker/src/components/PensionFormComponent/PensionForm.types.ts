@@ -1,4 +1,4 @@
-import { PensionData } from "../../types/PensionData.types";
+import { PensionData } from "../../types/index.types";
 
 interface PensionFormState {
   retireIncome: string;
