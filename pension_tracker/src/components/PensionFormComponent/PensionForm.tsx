@@ -3,12 +3,14 @@ import { PensionFormProps, PensionFormState } from "./PensionForm.types";
 import Input from "../InputComponent/Input";
 import {
   desiredPensionCalc,
+  pensionDataCalc,
   projectedPensionCalc,
 } from "../../utils/pensionCalcFn";
 
 const PensionForm = ({
   setProjectedPension,
   setDesiredPension,
+  setPensionData,
 }: PensionFormProps) => {
   const [formData, setFormData] = useState<PensionFormState>({
     retireIncome: "",
@@ -20,10 +22,10 @@ const PensionForm = ({
   useEffect(() => {
     //Validate that all fields are not empty to perform calculations
     if (
-      retireIncome &&
-      employerContribution &&
-      personalContribution &&
-      retireAge
+      formData.retireIncome &&
+      formData.employerContribution &&
+      formData.personalContribution &&
+      formData.retireAge
     ) {
       //Change from string to number
       const retireIncome = parseFloat(formData.retireIncome);
@@ -39,8 +41,20 @@ const PensionForm = ({
         )
       );
       setDesiredPension(desiredPensionCalc(retireIncome, retireAge));
+      setPensionData(
+        pensionDataCalc(
+          retireIncome,
+          employerContribution,
+          personalContribution,
+          retireAge
+        )
+      );
+    } else {
+      setProjectedPension(undefined);
+      setDesiredPension(undefined);
+      setPensionData([]);
     }
-  }, [formData, setProjectedPension, setDesiredPension]);
+  }, [formData, setProjectedPension, setDesiredPension, setPensionData]);
 
   const handleFormChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;

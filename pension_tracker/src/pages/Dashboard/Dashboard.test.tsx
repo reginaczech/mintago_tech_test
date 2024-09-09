@@ -4,6 +4,7 @@ import Dashboard from "./Dashboard";
 
 const setProjectedPension = jest.fn();
 const setDesiredPension = jest.fn();
+const setPensionData = jest.fn();
 
 describe("Dashboard Component", () => {
   it("should render pension form", () => {
@@ -11,6 +12,7 @@ describe("Dashboard Component", () => {
       <PensionForm
         setProjectedPension={setProjectedPension}
         setDesiredPension={setDesiredPension}
+        setPensionData={setPensionData}
       />
     );
     //Check if the label for the first input component exists

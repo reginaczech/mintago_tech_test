@@ -1,3 +1,5 @@
+import { PensionData } from "../../types/PensionData.types";
+
 interface PensionFormState {
   retireIncome: string;
   employerContribution: string;
@@ -8,6 +10,7 @@ interface PensionFormState {
 interface PensionFormProps {
   setProjectedPension: React.Dispatch<React.SetStateAction<number | undefined>>;
   setDesiredPension: React.Dispatch<React.SetStateAction<number | undefined>>;
+  setPensionData: React.Dispatch<React.SetStateAction<PensionData[]>>;
 }
 
 export type { PensionFormProps, PensionFormState };
