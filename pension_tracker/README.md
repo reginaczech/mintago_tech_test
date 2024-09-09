@@ -1,4 +1,4 @@
-# mintago_tech_test
+# Mintago
 
 Frontend Developer Technical Test
 

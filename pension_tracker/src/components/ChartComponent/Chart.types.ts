@@ -6,6 +6,7 @@ interface ChartProps {
   xAxisKey: string;
   yAxisKey: string;
   secondaryKey?: string;
+  xRef?: number;
   chartType: "timeSeries" | "comparison";
 }
 

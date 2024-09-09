@@ -5,6 +5,7 @@ import Dashboard from "./Dashboard";
 const setProjectedPension = jest.fn();
 const setDesiredPension = jest.fn();
 const setPensionData = jest.fn();
+const setRetireAge = jest.fn();
 
 describe("Dashboard Component", () => {
   it("should render pension form", () => {
@@ -13,6 +14,7 @@ describe("Dashboard Component", () => {
         setProjectedPension={setProjectedPension}
         setDesiredPension={setDesiredPension}
         setPensionData={setPensionData}
+        setRetireAge={setRetireAge}
       />
     );
     //Check if the label for the first input component exists
@@ -21,7 +23,7 @@ describe("Dashboard Component", () => {
     ).toBeInTheDocument();
   });
 
-  it("should update pension values when form is updated", () => {
+  it("should update pension values when form is updated", async () => {
     render(<Dashboard />);
 
     fireEvent.change(screen.getByLabelText("Income to receive in retirement"), {
@@ -37,7 +39,8 @@ describe("Dashboard Component", () => {
       target: { value: "65" },
     });
 
-    expect(screen.getByText("Projected Pension: 288000")).toBeInTheDocument();
-    expect(screen.getByText("Desired Pension: 256000")).toBeInTheDocument();
+    //Async Await required here because the text gets updated asynchronously when the stated are updated
+    expect(await screen.findByText("£288,000")).toBeInTheDocument();
+    expect(await screen.findByText("£256,000")).toBeInTheDocument();
   });
 });

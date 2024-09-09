@@ -7,6 +7,8 @@ interface InputProps {
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   min?: number;
   max?: number;
+  isCurrency?: boolean;
+  suffix?: string;
 }
 
 export type { InputProps };

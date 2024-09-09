@@ -4,6 +4,7 @@ import PensionForm from "./PensionForm";
 const setProjectedPension = jest.fn();
 const setDesiredPension = jest.fn();
 const setPensionData = jest.fn();
+const setRetireAge = jest.fn();
 
 describe("Pension Form Component", () => {
   it("should render a Retirement Income input component", () => {
@@ -12,6 +13,7 @@ describe("Pension Form Component", () => {
         setProjectedPension={setProjectedPension}
         setDesiredPension={setDesiredPension}
         setPensionData={setPensionData}
+        setRetireAge={setRetireAge}
       />
     );
     expect(
@@ -25,6 +27,7 @@ describe("Pension Form Component", () => {
         setProjectedPension={setProjectedPension}
         setDesiredPension={setDesiredPension}
         setPensionData={setPensionData}
+        setRetireAge={setRetireAge}
       />
     );
     expect(
@@ -38,6 +41,7 @@ describe("Pension Form Component", () => {
         setProjectedPension={setProjectedPension}
         setDesiredPension={setDesiredPension}
         setPensionData={setPensionData}
+        setRetireAge={setRetireAge}
       />
     );
     expect(
@@ -51,6 +55,7 @@ describe("Pension Form Component", () => {
         setProjectedPension={setProjectedPension}
         setDesiredPension={setDesiredPension}
         setPensionData={setPensionData}
+        setRetireAge={setRetireAge}
       />
     );
     expect(screen.getByLabelText("Retirement Age")).toBeInTheDocument();
