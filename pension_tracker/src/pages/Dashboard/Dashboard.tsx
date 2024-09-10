@@ -15,6 +15,12 @@ const Dashboard = () => {
     { projectedPot: projectedPension || 0, desiredPot: desiredPension || 0 },
   ];
 
+  //Indicate color when the desired pension is greater than the projected
+  const desiredPensionColor =
+    desiredPension && projectedPension && desiredPension > projectedPension
+      ? "text-red-600" // Tailwind class for red text
+      : "text-gray-900"; // Default color
+
   return (
     <>
       <div className="container mx-auto px-4 py-8">
@@ -38,7 +44,7 @@ const Dashboard = () => {
               </p>
               <p className="text-lg font-semibold">
                 Desired Pension:
-                <span className="text-xl font-bold text-gray-900">
+                <span className={`text-xl font-bold ${desiredPensionColor}`}>
                   {desiredPension
                     ? ` £${desiredPension.toLocaleString()}`
                     : " — "}
