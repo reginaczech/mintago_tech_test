@@ -52,3 +52,4 @@ If I had more time, I would implement:
     - other pension pots
     - toggle annual interest rate ON/OFF
     - toggle graph views
+- Consider using a different Chart Library - ReChart library gives warning errors. With ore complex graphs, a different library like D3 could be more useful for custom graphs.
