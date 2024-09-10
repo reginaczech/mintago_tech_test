@@ -84,6 +84,10 @@ const PensionForm = ({
     <>
       <div className="flex justify-center items-center  px-4 py-8">
         <div className="w-full max-w-md bg-white p-6 rounded-lg shadow-md">
+          <p className="text-sm text-gray-600 mb-4">
+            Enter the details below. Your pension tracker will update once all
+            fields are full.
+          </p>
           <Input
             name="retireIncome"
             label="Income to receive in retirement"
@@ -123,6 +127,9 @@ const PensionForm = ({
             min={26}
             max={81}
           />
+          <p className="text-xs text-gray-500 mt-4 text-center">
+            Included: 4.9% annual interest rate.
+          </p>
         </div>
       </div>
     </>
