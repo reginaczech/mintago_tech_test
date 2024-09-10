@@ -28,6 +28,5 @@ describe("Modular Input Component", () => {
     fireEvent.change(inputEl, { target: { value: 1 } });
 
     expect(mockHandleChange).toHaveBeenCalled();
-    //TODO: test if value is updating correctly?
   });
 });

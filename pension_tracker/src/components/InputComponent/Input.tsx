@@ -1,5 +1,3 @@
-// import React from 'react'
-
 import { InputProps } from "./Input.types";
 
 const Input = ({

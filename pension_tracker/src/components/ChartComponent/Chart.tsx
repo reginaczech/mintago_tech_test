@@ -11,7 +11,7 @@ import {
 } from "recharts";
 import { ChartProps } from "./Chart.types";
 import { PensionData } from "../../types/index.types";
-import useWindowDimensions from "../../customHooks/useWindowDimensions ";
+import useWindowDimensions from "../../customHooks/useWindowDimensions";
 
 const Chart = ({
   chartTitle,
@@ -24,13 +24,12 @@ const Chart = ({
 }: ChartProps) => {
   const { width, height } = useWindowDimensions();
 
-  // Set the chart size based on a percentage of the window size
-  const chartWidth = width * 0.9; // 90% of window width
+  // Chart Sizes set based on window size
+  const chartWidth = width * 0.9;
   const chartHeight = height * 0.5;
 
   return (
-    // <ResponsiveContainer width="100%" height={400}>
-    // <ResponsiveContainer width="100%" height="100%">
+    //FYI: Custom hook used in the Chart Component because rechart ResponsiveContainer not working properly, BarChart does not render properly without a set width & height
     <div data-testid="bar-chart" className="w-full h-full">
       <h2 className="text-xl text-center font-semibold mb-4">{chartTitle}</h2>
       <BarChart
@@ -91,7 +90,6 @@ const Chart = ({
         />
       </BarChart>
     </div>
-    // </ResponsiveContainer>
   );
 };
 

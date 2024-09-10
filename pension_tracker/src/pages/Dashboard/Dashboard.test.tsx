@@ -17,7 +17,7 @@ describe("Dashboard Component", () => {
         setRetireAge={setRetireAge}
       />
     );
-    //Check if the label for the first input component exists
+    //Checks if the label for the first input component exists
     expect(
       screen.getByLabelText("Income to receive in retirement")
     ).toBeInTheDocument();
@@ -27,20 +27,20 @@ describe("Dashboard Component", () => {
     render(<Dashboard />);
 
     fireEvent.change(screen.getByLabelText("Income to receive in retirement"), {
-      target: { value: "16000" },
+      target: { value: "20000" },
     });
     fireEvent.change(screen.getByLabelText("Employer Monthly Contributions"), {
-      target: { value: "400" },
+      target: { value: "100" },
     });
     fireEvent.change(screen.getByLabelText("Personal Monthly Contributions"), {
-      target: { value: "200" },
+      target: { value: "100" },
     });
     fireEvent.change(screen.getByLabelText("Retirement Age"), {
       target: { value: "65" },
     });
 
     //Async Await required here because the text gets updated asynchronously when the stated are updated
-    expect(await screen.findByText("£288,000")).toBeInTheDocument();
-    expect(await screen.findByText("£256,000")).toBeInTheDocument();
+    expect(await screen.findByText("£282,941.38")).toBeInTheDocument();
+    expect(await screen.findByText("£320,000")).toBeInTheDocument();
   });
 });

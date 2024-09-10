@@ -24,8 +24,5 @@ describe("Bar Chart Component", () => {
     const chartElement = screen.getByTestId("bar-chart");
     expect(chartElement).toBeInTheDocument();
 
-    // Check for SVG elements (bars) in the chart
-    // const bars = chartElement.querySelectorAll("rect"); // Assuming bars are represented as <rect> elements
-    // expect(bars.length).toBe(mockTimeSeriesData.length);
   });
 });
